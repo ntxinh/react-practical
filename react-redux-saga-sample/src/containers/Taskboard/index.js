@@ -3,13 +3,14 @@ import { withStyles } from "@material-ui/styles";
 import styles from './styles';
 import { Button, Grid, DialogTitle, Dialog, DialogContent, DialogActions, Box } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import { STATUSES } from '../constants';
-import TaskList from '../components/TaskList'
-import TaskForm from '../components/TaskForm';
+import { STATUSES } from './../../constants';
+import TaskList from './../../components/TaskList'
+import TaskForm from './../TaskForm';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as taskActions from './../actions/task';
-import SearchBox from '../components/SearchBox';
+import * as taskActions from './../../actions/task';
+import SearchBox from './../../components/SearchBox';
+import * as modalActions from './../../actions/modal';
 
 class Taskboard extends Component {
 
@@ -18,9 +19,9 @@ class Taskboard extends Component {
     }
 
     componentDidMount() {
-        // const { taskActionCreators } = this.props;
-        // const { fetchListTask } = taskActionCreators;
-        // fetchListTask();
+        const { taskActionCreators } = this.props;
+        const { fetchListTask } = taskActionCreators;
+        fetchListTask();
     }
 
     renderBoard() {
@@ -37,14 +38,14 @@ class Taskboard extends Component {
         return xhtml;
     }
 
-    renderForm() {
-        const { open } = this.state;
-        let xhtml = null;
-        xhtml = (
-            <TaskForm open={open} onClose={this.handleClose} />
-        )
-        return xhtml;
-    }
+    // renderForm() {
+    //     const { open } = this.state;
+    //     let xhtml = null;
+    //     xhtml = (
+    //         <TaskForm open={open} onClose={this.handleClose} />
+    //     )
+    //     return xhtml;
+    // }
 
     handleClose = () => {
         this.setState({
@@ -53,9 +54,11 @@ class Taskboard extends Component {
     }
 
     openForm = () => {
-        this.setState({
-            open: true
-        });
+        const { modalActionCreators } = this.props;
+        const { showModal, changeModalTitle, changeModalContent } = modalActionCreators;
+        showModal();
+        changeModalTitle('Add new task');
+        changeModalContent(<TaskForm />);
     }
 
     loadData = () => {
@@ -91,7 +94,6 @@ class Taskboard extends Component {
 
                 {this.renderSearchBox()}
                 {this.renderBoard()}
-                {this.renderForm()}
             </div>
         )
     }
@@ -104,7 +106,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        taskActionCreators: bindActionCreators(taskActions, dispatch)
+        taskActionCreators: bindActionCreators(taskActions, dispatch),
+        modalActionCreators: bindActionCreators(modalActions, dispatch),
     }
 };
 

@@ -1,12 +1,29 @@
+# HOW TO RUN
+
 ```
 json-server db.json
 
 npm start
 ```
 
+http://localhost:3001
+
+# Technical Stack
+
+- react
+- redux
+- redux-thunk
+- redux-saga
+- redux-form
+- material-ui
+- react-toastify
+- axios
+
+# Notes
+
 middleware có phân biệt thứ tự
 
-# Redux thunk
+## Redux thunk
 - redux-thunk dùng để xử lý side-effect và các hoạt động không đồng bộ (asynchronous)
 - side-effect là những tương tác của ứng dụng với thế giới bên ngoài: giao tiếp API, đọc ghi file, analyst events
 - trong redux side-effect thường được xử lý ở action (action creator) hoặc middleware
@@ -15,7 +32,7 @@ middleware có phân biệt thứ tự
 - redux-thunk là một package. Cung cấp middleware để xử lý các hàm trả về từ action creator. Middleware và action creator làm việc cùng nhau
 - Không thể kết hợp, giao tiếp giữa các side-effect
 
-# Redux Saga
+## Redux Saga
 - Xử lý side-effect
 - Xử lý các câu chuyện phức tạp về dữ liệu
 - sử dụng tính năng ES6: generators
@@ -29,7 +46,7 @@ middleware có phân biệt thứ tự
 - Tốn thời gian cho người mới
 - Nặng về xử lý. Không dành cho ứng dụng đơn giản
 
-# Generator
+## Generator
 - Là các function, các quy trình nền, chương trình con, có khả năng tạm dừng và tiếp tục chạy, Có khả năng thoát ra khỏi hàm sau đó nhập lại vào trong hàm chạy lại. Và mỗi lần thoát ra hoặc nhập lại như vậy ta có thể lưu trữ các biến
 
 ```js
@@ -61,46 +78,46 @@ generator trong generator
 
 generator sinh ra để giải quyết luồng điều khiển không đồng bộ thành đồng bộ và code sẽ rõ ràng dễ đọc hơn (callback hell)
 
-# root saga
+## root saga
 - là entry point của saga. là nơi điều phối tất cả các sagas khác được sử dụng trong ứng dụng
 - khởi động tất cả các sagas khác để chạy nền, theo dõi và kích hoạt xử lý các action
 - có thể sử dụng đồng thời cả thunk và saga: vì mỗi saga sẽ lắng nghe, theo dõi, phản hồi các action cụ thể
 - saga được gọi khi đăng ký theo dõi action
 
-# fork
+## fork
 - watchFetchData: gọi là bộ theo dõi, người theo dõi action, là 1 generator function
 - Dùng để rẽ nhánh, như if, else, switch, case để rẽ nhánh
 - forrk thuộc redux-saga/effects
 - cho phép rootSaga chuyển sang các bộ theo dõi khác
 - mỗi fork là 1 non-blocking, có nghĩa là có thể kích hoạt nhiều bộ theo dõi cùng lúc (dispatch nhiều action cùng lúc)
 
-# take
+## take
 - dùng để phản hồi các action khi action được dispatch
 - lệnh take sẽ được kích hoạt và tham gia vào saga khi một action được dispatch. Tạm dừng đến khi nhận action
 - là blocking
 
-# call
+## call
 - tương tự như call của js
 - thường được dùng để gửi request API, call API
 - là blocking
 - Giống như việc thực thi 1 function. Trả về promise và sẽ tạm dừng saga cho đến khi promise được resolved
 
-# put
+## put
 - dùng để dispatch action
 - là non-blocking
 
-# delay
+## delay
 - blocing
 - để chặn thực thi trong 1 khoảng thời gian miliseconds (đầu vào của delay)
 
-# takeLatest
+## takeLatest
 - thay thế cho fork. là phiên bản của fork đã được bổ sung các chức năng nâng cao, mạnh mẽ
 - hủy bỏ quy trình cũ khi có một quy trình mới bắt đầu
 - nếu thực hiện một loạt các action, takeLatest chỉ thực thi và lấy kết quả của action cuối cùng
 - Không cần vòng lặp vô hạn
 
-# select
+## select
 - lấy data từ store tại saga
 
-# takeEvery
+## takeEvery
 - Ngược với takeLatest, takeEvery sẽ chạy ngay lập tức nếu được kích hoạt, chạy không tính số lần, gọi là chạy, chạy không biết là action trước đó đã chạy xong chưa
