@@ -25,16 +25,30 @@ export const fetchListTaskFailed = error => {
     }
 }
 
-export const fetchListTaskRequest = () => {
-    return dispatch => {
-        dispatch(fetchListTask());
-        taskApis.getList().then(resp => {
-            const { data } = resp;
-            console.log('data:', data);
-            dispatch(fetchListTaskSuccess(data))
-        }).catch(error => {
-            console.log('error;', error);
-            dispatch(fetchListTaskFailed(error))
-        })
+// export const fetchListTaskRequest = () => {
+//     return dispatch => {
+//         dispatch(fetchListTask());
+//         taskApis.getList().then(resp => {
+//             const { data } = resp;
+//             console.log('data:', data);
+//             dispatch(fetchListTaskSuccess(data))
+//         }).catch(error => {
+//             console.log('error;', error);
+//             dispatch(fetchListTaskFailed(error))
+//         })
+//     }
+// };
+
+export const filterTask = keyword => ({
+    type: taskContants.FILTER_TASK,
+    payload: {
+        keyword,
     }
-};
+});
+
+export const filterTaskSuccess = data => ({
+    type: taskContants.FILTER_TASK_SUCCESS,
+    payload: {
+        data,
+    }
+});

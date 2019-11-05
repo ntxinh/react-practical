@@ -9,6 +9,7 @@ import TaskForm from '../components/TaskForm';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as taskActions from './../actions/task';
+import SearchBox from '../components/SearchBox';
 
 class Taskboard extends Component {
 
@@ -17,9 +18,9 @@ class Taskboard extends Component {
     }
 
     componentDidMount() {
-        const { taskActionCreators } = this.props;
-        const { fetchListTaskRequest } = taskActionCreators;
-        fetchListTaskRequest();
+        // const { taskActionCreators } = this.props;
+        // const { fetchListTask } = taskActionCreators;
+        // fetchListTask();
     }
 
     renderBoard() {
@@ -57,13 +58,38 @@ class Taskboard extends Component {
         });
     }
 
+    loadData = () => {
+        const { taskActionCreators } = this.props;
+        const { fetchListTask } = taskActionCreators;
+        fetchListTask();
+    }
+
+    handleFilter = (e) => {
+        const { value } = e.target;
+        const { taskActionCreators } = this.props;
+        const { filterTask } = taskActionCreators;
+        filterTask(value);
+    }
+
+    renderSearchBox = () => {
+        let xhtml = null;
+        xhtml = (
+            <SearchBox handleChange={this.handleFilter} />
+        )
+        return xhtml;
+    }
+
     render() {
         return (
             <div>
+                <Button variant="contained" color="primary" onClick={this.loadData}>
+                    Load Data
+                </Button>
                 <Button variant="contained" color="primary" onClick={this.openForm}>
                     <AddIcon />Add Task
                 </Button>
 
+                {this.renderSearchBox()}
                 {this.renderBoard()}
                 {this.renderForm()}
             </div>
