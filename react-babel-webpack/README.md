@@ -1,3 +1,12 @@
+# TODO
+- [x] Minimal webpack config
+- [x] Hot Module Replacement (alternative: react-hot-loader)
+- [ ] CSS Modules: style-loader, css-loader, html-loader
+- [ ] SVG Icons
+- [ ] Fonts
+- [ ] Images
+- [ ] airbnb style guide, eslint, husky, lint-staged, prettier, prop-types, editorconfig
+
 # babel
 ```
 Babel doesn't do anything,It basically acts like const babel = code => code; 
