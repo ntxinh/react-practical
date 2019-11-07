@@ -1,7 +1,7 @@
 # TODO
 - [x] Minimal webpack config
 - [x] Hot Module Replacement (alternative: react-hot-loader)
-- [ ] CSS Modules: style-loader, css-loader, html-loader
+- [x] CSS Modules: style-loader, css-loader
 - [ ] SVG Icons
 - [ ] Fonts
 - [ ] Images
