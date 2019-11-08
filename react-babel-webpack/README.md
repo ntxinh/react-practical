@@ -7,6 +7,7 @@
 - [x] Fonts
 - [x] Images
 - [ ] airbnb style guide, eslint, husky, lint-staged, prettier, prop-types, editorconfig
+- [x] webpack env dev & prod
 
 # babel
 ```

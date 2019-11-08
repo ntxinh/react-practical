@@ -1,12 +1,11 @@
 {
-  "name": "react-babel-webpack",
+  "name": "react-webpack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --open --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +20,7 @@
     "@babel/preset-react": "^7.7.0",
     "@svgr/webpack": "^4.3.3",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.0",
@@ -29,6 +29,7 @@
     "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
   }
 }
