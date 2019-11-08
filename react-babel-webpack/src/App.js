@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './style.css';
-import FacebookIcon from './Icons/Facebook.svg';
+import styles from './style.scss';
+import FacebookIcon from './assets/icons/Facebook.svg';
 import MyImage from './assets/images/myimage.jpg';
 
 const App = ({ title }) => (

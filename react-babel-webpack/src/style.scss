@@ -1,0 +1,18 @@
+$OpenSansRegularWoff: './assets/fonts/open-sans-v17-latin-regular.woff';
+$OpenSansRegularWoffTwo: './assets/fonts/open-sans-v17-latin-regular.woff2';
+
+.title {
+  color: blueviolet;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src: url($OpenSansRegularWoff) format('woff2'),
+    url($OpenSansRegularWoffTwo) format('woff');
+}
+html,
+body {
+  font-family: 'Open Sans', sans-serif;
+}

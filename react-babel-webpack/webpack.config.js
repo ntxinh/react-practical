@@ -15,7 +15,7 @@ module.exports = {
         use: ['babel-loader']
       },
       {
-        test: /\.css$/i,
+        test: /\.scss$/i,
         exclude: /node_modules/,
         use: [
           'style-loader',
@@ -25,6 +25,7 @@ module.exports = {
               modules: true,
             },
           },
+          'sass-loader'
         ],
       },
       {
@@ -32,7 +33,7 @@ module.exports = {
         use: ['@svgr/webpack'],
       },
       {
-        test: /\.(woff|woff2|jpg|png)$/,
+        test: /\.(woff|woff2)$/,
         use: {
           loader: 'url-loader',
         },
