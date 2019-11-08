@@ -1,3 +1,15 @@
 .title {
   color: blueviolet;
 }
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: normal;
+  src:
+    url('./assets/fonts/open-sans-v17-latin-regular.woff2') format('woff2'),
+    url('./assets/fonts/open-sans-v17-latin-regular.woff') format('woff');
+}
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}

@@ -2,9 +2,10 @@
 - [x] Minimal webpack config
 - [x] Hot Module Replacement (alternative: react-hot-loader)
 - [x] CSS Modules: style-loader, css-loader
-- [ ] SVG Icons
-- [ ] Fonts
-- [ ] Images
+- [ ] SCSS
+- [x] SVG Icons
+- [x] Fonts
+- [x] Images
 - [ ] airbnb style guide, eslint, husky, lint-staged, prettier, prop-types, editorconfig
 
 # babel

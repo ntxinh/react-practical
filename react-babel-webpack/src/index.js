@@ -5,7 +5,7 @@ import App from './App';
 
 const title = 'React with Webpack and Babel';
 
-const rootElement = document.getElementById('react-app');
+const rootElement = document.getElementById('root');
 
 render(<App title={title} />, rootElement);
 
