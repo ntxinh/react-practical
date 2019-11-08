@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './style.css';
-import FacebookIcon from './Icons/Facebook.js';
+import FacebookIcon from './Icons/Facebook.svg';
 
 const App = ({ title }) =>
   <div className={styles.title}>
