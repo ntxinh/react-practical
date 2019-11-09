@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -13,6 +14,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Production',
       template: 'src/index.html'
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'HELLO': JSON.stringify('Define variable from webpack'),
+      }
     }),
   ],
   module: {
