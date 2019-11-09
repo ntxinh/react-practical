@@ -4,13 +4,16 @@
 - [x] CSS Modules: style-loader, css-loader
 - [x] SCSS
 - [x] SVG Icons
+- [x] Favicon
 - [x] Fonts
 - [x] Images
 - [ ] airbnb style guide, eslint, husky, lint-staged, prettier, prop-types, editorconfig
-- [x] webpack env dev & prod
+- [x] webpack configuration env dev & prod 
 - [x] CSS extraction
 - [ ] Re-use current tab instead of open a new one
 - [x] Webpack environment variables: Define & .env
+- [ ] Optimize build production: sourceMap, Compress with gzip, minify with UglifyJS, code splitting with CommonsChunkPlugin
+- [ ] web app manifest
 
 # babel
 ```

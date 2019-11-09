@@ -4,16 +4,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    main: './src/index.js',
   },
   output: {
-    filename: 'static/js/[name].bundle.js',
+    filename: 'static/js/[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Production',
-      template: 'src/index.html'
+      title: 'React Webpack',
+      template: 'src/index.html',
     }),
     new webpack.DefinePlugin({
       'process.env': {
@@ -24,7 +24,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         include: path.resolve(__dirname, 'src'),
         use: ['babel-loader']
       },
@@ -37,7 +37,7 @@ module.exports = {
         use: ['url-loader'],
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpe?g|png|gif)$/,
         use: ['url-loader'],
       },
     ]
