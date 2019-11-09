@@ -10,6 +10,7 @@
 - [x] webpack env dev & prod
 - [x] CSS extraction
 - [ ] Re-use current tab instead of open a new one
+- [x] Webpack environment variables: Define & .env
 
 # babel
 ```
