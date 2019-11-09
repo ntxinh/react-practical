@@ -2,9 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    main: './src/index.js',
-  },
+  entry: [
+    'react-hot-loader/patch',
+    './src/index.js',
+  ],
   optimization: {
     splitChunks: {
       chunks: 'all'
