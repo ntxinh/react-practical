@@ -33,23 +33,15 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(scss|sass)$/i,
+        test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
         use: [
+          // Creates `style` nodes from JS strings
           'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: true,
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader',
         ],
       },
     ]
