@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.scss';
+import styles from './App.scss';
 import FacebookIcon from './assets/icons/Facebook.svg';
 import MyImage from './assets/images/myimage.jpg';
 

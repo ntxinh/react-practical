@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'react-dom';
-
+import ReactDOM from 'react-dom';
+import './index.scss';
 import App from './App';
 
 if (process.env.NODE_ENV !== 'production') {
@@ -9,8 +9,6 @@ if (process.env.NODE_ENV !== 'production') {
 
 const title = 'React with Webpack and Babel';
 
-const rootElement = document.getElementById('root');
-
-render(<App title={title} />, rootElement);
+ReactDOM.render(<App title={title} />, document.getElementById('root'));
 
 module.hot.accept();
