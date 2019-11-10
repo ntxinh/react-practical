@@ -27,11 +27,11 @@ module.exports = merge(common, {
     // https://webpack.js.org/configuration/dev-server/#devserveropen
     open: false,
     // https://webpack.js.org/configuration/dev-server/#devserverhot
-    hot: true,
+    hot: true
   },
   plugins: [
     new Dotenv({
-      path: './.env.development',
+      path: './.env.development'
     }),
     new HtmlWebpackPlugin({
       // webpack relative or absolute path to the template
@@ -43,7 +43,7 @@ module.exports = merge(common, {
         PUBLIC_URL: '',
         title: 'React Webpack App'
       }
-    }),
+    })
   ],
   module: {
     rules: [
@@ -56,9 +56,9 @@ module.exports = merge(common, {
           // Translates CSS into CommonJS
           'css-loader',
           // Compiles Sass to CSS
-          'sass-loader',
-        ],
-      },
+          'sass-loader'
+        ]
+      }
     ]
-  },
+  }
 });

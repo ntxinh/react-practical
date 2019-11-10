@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const merge = require('webpack-merge');
@@ -13,11 +13,11 @@ module.exports = merge(common, {
   output: {
     path: path.resolve(__dirname, 'build'),
     publicPath: '/',
-    filename: 'static/js/[name].[contenthash].js',
+    filename: 'static/js/[name].[contenthash].js'
   },
   plugins: [
     new Dotenv({
-      path: './.env.production',
+      path: './.env.production'
     }),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -26,35 +26,31 @@ module.exports = merge(common, {
       // Controls if and in what ways the output should be minified
       minify: {
         removeComments: true,
-        collapseWhitespace: true,
+        collapseWhitespace: true
       },
       templateParameters: {
         PUBLIC_URL: '',
-        title: 'React Webpack App',
-      },
+        title: 'React Webpack App'
+      }
     }),
     new MiniCssExtractPlugin({
-      filename: 'static/css/[name].[contenthash].css',
+      filename: 'static/css/[name].[contenthash].css'
     }),
     new CopyPlugin([
       {
         from: 'public/',
         to: '.',
-        ignore: ['service-worker.js'],
-      },
-    ]),
+        ignore: ['service-worker.js']
+      }
+    ])
   ],
   module: {
     rules: [
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'sass-loader',
-        ],
-      },
-    ],
-  },
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      }
+    ]
+  }
 });
