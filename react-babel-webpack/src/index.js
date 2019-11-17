@@ -16,4 +16,6 @@ const title = 'React with Webpack and Babel';
 
 ReactDOM.render(<App title={title} />, document.getElementById('root'));
 
-module.hot.accept();
+if (module.hot) {
+  module.hot.accept();
+}
