@@ -1,4 +1,4 @@
 {
-  "*.+(js|jsx)": ["eslint --fix", "git add"],
-  "*.+(json|css|md)": ["prettier --write", "git add"]
+  "*.+(js|jsx)": ["npm run lint:fix", "git add"],
+  "*.+(json|css|md)": ["npm run prettier:fix", "git add"]
 }
